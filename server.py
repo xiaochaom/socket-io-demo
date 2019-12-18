@@ -33,12 +33,7 @@ def connect():
 
 @socket_io.on('test_server', namespace='/test')
 def test_server(json_str):
-    """
 
-    :param json_str: {"id":"任务执行id","PASS":count, "FAIl":count, "SKIP":count, "TOTAL":count, "STATUS":"任务执行状态,执行中 0,未执行
-     1,2 执行完成,3 执行取消"}
-    :return:
-    """
     print(json_str)
     socket_io.emit('test_client', 'test {}'.format(json_str), namespace='/test')
 
